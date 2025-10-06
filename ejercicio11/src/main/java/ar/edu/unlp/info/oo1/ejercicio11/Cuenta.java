@@ -18,11 +18,15 @@ public abstract class Cuenta {
 	}
 	
 	public void depositar(double monto) {
-		this.setSaldo(this.getSaldo() + monto);
+		if (monto > 0) {
+			this.setSaldo(this.getSaldo() + monto);
+		}
 	}
 	
 	protected void extraerSinControlar(double monto) {
-		this.setSaldo(this.getSaldo() - monto);
+		if (monto > 0) {
+			this.setSaldo(this.getSaldo() - monto);
+		}
 	}
 	
 	protected abstract boolean puedeExtraer(double monto);

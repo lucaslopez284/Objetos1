@@ -35,12 +35,18 @@ class CajaDeAhorroTest {
 
 	@Test
 	void testExtraer() {
-		
+		cuenta1.depositar(200);
+		assertEquals(true, cuenta1.extraer(100));
+		assertEquals(94, cuenta1.getSaldo());
 	}
 
 	@Test
 	void testTransferirACuenta() {
-		fail("Not yet implemented");
+		cuenta1.depositar(200);//cada uno tiene 196
+		cuenta2.depositar(200);
+		cuenta1.transferirACuenta(100, cuenta2);
+		assertEquals(94, cuenta1.getSaldo());
+		assertEquals(294, cuenta2.getSaldo());
 	}
 
 }

@@ -59,7 +59,7 @@ class CuentaCorrienteTest {
 		cuenta1.depositar(200);
 		cuenta2.depositar(200);
 		cuenta1.transferirACuenta(200, cuenta2);
-		assertEquals(0, cuenta1.getDescubierto());
+		assertEquals(0, cuenta1.getSaldo());
 		assertEquals(400, cuenta2.getSaldo());
 	}
 
