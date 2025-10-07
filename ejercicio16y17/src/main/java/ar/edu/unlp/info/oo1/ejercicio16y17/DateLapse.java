@@ -2,23 +2,46 @@ package ar.edu.unlp.info.oo1.ejercicio16y17;
 
 import java.time.*;
 
-public class DateLapse {
+public class DateLapse implements Date{
+	private LocalDate from;
+	private LocalDate to;
 	
-	public LocalDate getFrom() { //“Retorna la fecha de inicio del rango”
-		return null;
+	
+	
+	public DateLapse(LocalDate from, LocalDate to) {
+		if (from.isAfter(to)) {
+	        // intercambio si el orden es incorrecto
+	        this.from = to;
+	        this.to = from;
+	    } 
+		else {
+	        this.from = from;
+	        this.to = to;
+	    }
 	}
 
-	public LocalDate getTo() { //“Retorna la fecha de fin del rango”
-		return null;
+	public LocalDate getFrom() { 
+		return from;
 	}
 
-	public int sizeInDays() { //“retorna la cantidad de días entre la fecha 'from' y la fecha 'to'”
+	public LocalDate getTo() {
+		return to;
+	}
+
+	public int sizeInDays() { 
+		if (this.getFrom() != null && this.getTo() != null) {
+			Period periodo = Period.between(this.getFrom(), this.getTo());
+			return periodo.getDays();
+		}
 		return 0;
 	}
 	
 
 	public boolean includesDate(LocalDate other) {
-		// “recibe un objeto LocalDate y retorna true si la fecha está entre el from y el to del receptor y false en caso contrario”.
+		if (this.getFrom() != null && this.getTo() != null) {
+			return (!this.getFrom().isAfter(other) && !this.getTo().isBefore(other));
+			// this.getFrom().isBefore(other) && this.getTo().isAfter(other) no incluye los extremos en el rango
+		}
 		return false;
 	}
 	
