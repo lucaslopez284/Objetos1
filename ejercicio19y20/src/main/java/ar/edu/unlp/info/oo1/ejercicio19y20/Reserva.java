@@ -17,11 +17,6 @@ public class Reserva {
 	}
 	
 	
-	
-	public DateLapse getPeriodo() {
-		return periodo;
-	}
-
 	public double precioTotal() {
 		return lugar.getPrecioPorNoche() * periodo.sizeInDays();
 	}
