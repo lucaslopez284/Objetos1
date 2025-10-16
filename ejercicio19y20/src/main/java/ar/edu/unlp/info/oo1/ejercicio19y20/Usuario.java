@@ -24,6 +24,13 @@ public class Usuario {
 		double sumaTotal = propiedades.stream().mapToDouble(p -> p.calcularIngresos(periodo)).sum();
 		return sumaTotal * 0.75;
 	}
+
+	public int cantPropiedades() {
+		return propiedades.size();
+	}
+
+	
+	
 	
 	
 

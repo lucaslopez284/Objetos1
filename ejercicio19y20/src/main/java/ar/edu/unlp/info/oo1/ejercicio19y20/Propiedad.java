@@ -20,11 +20,18 @@ public class Propiedad {
 		return precioPorNoche;
 	}
 	
-	public void crearReserva(DateLapse periodo, Usuario inquilino ) {
+	private void agregarReserva(Reserva nuevaReserva) {
+		this.reservas.add(nuevaReserva);
+	}
+	
+	public Reserva crearReserva(DateLapse periodo, Usuario inquilino ) {
+		Reserva reservaNueva = null;
 	    boolean noHayFechaQueCoincida = reservas.stream().allMatch(d -> !d.dentroDeLapso(periodo));
 	    if (noHayFechaQueCoincida) {
-	    	this.reservas.add(new Reserva(periodo,this, inquilino));
+	    	reservaNueva= new Reserva(periodo, this, inquilino);
+	    	this.agregarReserva(reservaNueva);
 	    }
+	    return reservaNueva;
 	}
 	
 	public void cancelarReserva(Reserva unaReserva) {
@@ -38,6 +45,16 @@ public class Propiedad {
 	public double calcularIngresos(DateLapse periodo) {
 	  return reservas.stream().filter(d -> d.dentroDeLapso(periodo)).mapToDouble(Reserva:: precioTotal).sum();
 	}
+
+	public List<Reserva> getReservas() {
+		return new ArrayList<Reserva>(this.reservas);
+	}
+
+
+	
+
+	
+	
 	
 	
 	
