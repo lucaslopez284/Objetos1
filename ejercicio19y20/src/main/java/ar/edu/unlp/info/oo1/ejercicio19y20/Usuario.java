@@ -21,7 +21,9 @@ public class Usuario {
 	}
 	
 	public double calcularIngresos(DateLapse periodo) {
-		double sumaTotal = propiedades.stream().mapToDouble(p -> p.calcularIngresos(periodo)).sum();
+		double sumaTotal = propiedades.stream()
+				.mapToDouble(p -> p.calcularIngresos(periodo))
+				.sum();
 		return sumaTotal * 0.75;
 	}
 

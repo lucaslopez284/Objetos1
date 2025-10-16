@@ -10,6 +10,7 @@ public class Reserva {
 	private Usuario inquilino;
 	
 	
+	
 	public Reserva(DateLapse periodo, Propiedad lugar, Usuario inquilino) {
 		this.periodo = periodo;
 		this.lugar = lugar;
@@ -22,15 +23,19 @@ public class Reserva {
 	}
 	
 	public boolean dentroDeLapso(DateLapse fechas) {
-		if (periodo.overlaps(fechas)) {
-			return true;
-		}
-		else return false;
+		return periodo.overlaps(fechas);
 	}
 	
-	public boolean noEstaEnCurso(LocalDate fecha) {
-		return !periodo.includesDate(fecha);
+	public boolean estaEnCurso() {
+		return periodo.includesDate(LocalDate.now());
 	}
+	
+	public boolean distanciaModerada() {
+	    DateLapse auxiliar = new DateLapse (LocalDate.now(), periodo.getFrom());
+	    return auxiliar.sizeInDays()>= 2;
+	    		
+	}
+	
 	
 	
 	

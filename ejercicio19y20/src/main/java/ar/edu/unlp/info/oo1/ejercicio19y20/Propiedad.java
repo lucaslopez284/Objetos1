@@ -9,11 +9,14 @@ public class Propiedad {
 	private String nombre;
 	private double precioPorNoche;
 	private List<Reserva> reservas;
-	public Propiedad(String direccion, String nombre, double precioPorNoche) {
+	private Politica laPolitica;
+	
+	public Propiedad(String direccion, String nombre, double precioPorNoche, Politica unaPolitica) {
 		this.direccion = direccion;
 		this.nombre = nombre;
 		this.precioPorNoche = precioPorNoche;
 		this.reservas = new ArrayList<Reserva>();
+		this.laPolitica = unaPolitica;
 	}
 	
 	public double getPrecioPorNoche() {
@@ -24,7 +27,7 @@ public class Propiedad {
 		this.reservas.add(nuevaReserva);
 	}
 	
-	public Reserva crearReserva(DateLapse periodo, Usuario inquilino ) {
+	public Reserva crearReserva(DateLapse periodo, Usuario inquilino) {
 		Reserva reservaNueva = null;
 	    boolean noHayFechaQueCoincida = reservas.stream().allMatch(d -> !d.dentroDeLapso(periodo));
 	    if (noHayFechaQueCoincida) {
@@ -34,12 +37,14 @@ public class Propiedad {
 	    return reservaNueva;
 	}
 	
-	public void cancelarReserva(Reserva unaReserva) {
+	public double cancelarReserva(Reserva unaReserva) {
 		if (reservas.contains(unaReserva)) {
-			if (unaReserva.noEstaEnCurso(LocalDate.now())) {
+			if (!unaReserva.estaEnCurso()) {
 				reservas.remove(unaReserva);
+				return this.laPolitica.reembolsar(unaReserva);
 			}
 		}
+		return 0;
 	}
 	
 	public double calcularIngresos(DateLapse periodo) {

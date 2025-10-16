@@ -13,13 +13,15 @@ class PropiedadTest {
 	DateLapse periodo1,periodo2, periodo3;	
 	Reserva reserva1, reserva2;
 	Usuario inquilino1;
+	Flexible politica1;
 	
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
-		propiedad1 = new Propiedad ("1 y 50", "departamento", 10);
-		propiedad2 = new Propiedad ("Quirno 70", "departamentoBis", 20);
+		politica1 = new Flexible();
+		propiedad1 = new Propiedad ("1 y 50", "departamento", 10, politica1);
+		propiedad2 = new Propiedad ("Quirno 70", "departamentoBis", 20, politica1);
 		periodo1 = new DateLapse(LocalDate.of(2025, 10, 14), LocalDate.of(2025, 10, 16));
 		periodo2 = new DateLapse(LocalDate.of(2025, 11, 1), LocalDate.of(2025, 11, 11));
 		inquilino1 = new Usuario ("Lucas", 46739642, "Calle 284");
