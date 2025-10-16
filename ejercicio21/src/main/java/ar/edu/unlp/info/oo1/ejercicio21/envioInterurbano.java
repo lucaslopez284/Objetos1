@@ -10,6 +10,21 @@ public class envioInterurbano extends Envio {
 		super(fechaDespacho, origen, destino, peso);
 		this.distancia = distancia;
 	}
+
+	@Override
+	public double obtenerCosto() {
+	    if (distancia < 100) {
+	    	return 20 * peso;
+	    }
+	    else {
+	    	if (distancia <= 500) {
+	    		return 25 * peso;
+	    	}
+	    	else return 30 * peso;
+	    }
+	}
+	
+	
 	
 	
 

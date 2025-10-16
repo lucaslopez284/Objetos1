@@ -15,5 +15,13 @@ public abstract class Envio {
 		this.destino = destino;
 		this.peso = peso;
 	}
+	
+	
+	
+	public LocalDate getFechaDespacho() {
+		return fechaDespacho;
+	}
+
+	public abstract double obtenerCosto();
 
 }

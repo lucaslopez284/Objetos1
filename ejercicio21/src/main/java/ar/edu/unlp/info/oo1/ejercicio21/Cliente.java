@@ -1,6 +1,8 @@
 package ar.edu.unlp.info.oo1.ejercicio21;
 
 import java.time.*;
+
+import java.time.*;
 import java.util.*;
 
 
@@ -19,7 +21,13 @@ public abstract class Cliente {
 	
 	public void agregarEnvio (Envio envioNuevo) {
 		envios.add(envioNuevo);
-	}	
+	}
+	
+	public List<Envio> getEnvios() {
+		return new ArrayList<Envio>(this.envios);
+	}
+	
+	public abstract double obtenerMontoAPagar(LocalDate inicio, LocalDate fin);
 	
 	
 	
