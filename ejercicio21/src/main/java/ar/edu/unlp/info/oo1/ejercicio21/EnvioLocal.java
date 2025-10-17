@@ -2,18 +2,18 @@ package ar.edu.unlp.info.oo1.ejercicio21;
 
 import java.time.LocalDate;
 
-public class envioLocal extends EnvioConEntregaRapida {
+public class EnvioLocal extends EnvioConEntregaRapida {
 	
     
 	
 
 	
 
-	public envioLocal(LocalDate fechaDespacho, String origen, String destino, double peso, boolean entregaRapida) {
+	public EnvioLocal(LocalDate fechaDespacho, String origen, String destino, double peso, boolean entregaRapida) {
 		super(fechaDespacho, origen, destino, peso, entregaRapida);
 	}
 
-	@Override
+
 	public double obtenerCosto() {
 		if (this.getEntregaRapida()) {
 			return 1000;

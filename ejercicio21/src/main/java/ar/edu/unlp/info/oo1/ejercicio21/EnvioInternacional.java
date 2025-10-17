@@ -2,11 +2,11 @@ package ar.edu.unlp.info.oo1.ejercicio21;
 
 import java.time.LocalDate;
 
-public class envioInternacional extends EnvioConEntregaRapida {
+public class EnvioInternacional extends EnvioConEntregaRapida {
 
 	
 
-	public envioInternacional(LocalDate fechaDespacho, String origen, String destino, double peso,
+	public EnvioInternacional(LocalDate fechaDespacho, String origen, String destino, double peso,
 			boolean entregaRapida) {
 		super(fechaDespacho, origen, destino, peso, entregaRapida);
 	}
