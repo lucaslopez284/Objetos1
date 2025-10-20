@@ -13,7 +13,7 @@ public class ClienteCorporativo extends Cliente{
 
 	public double obtenerMontoAPagar(LocalDate inicio, LocalDate fin) {
 		return this.getEnvios().stream()
-				.filter(e -> !e.getFechaDespacho().isAfter(fin) && !e.getFechaDespacho().isBefore(inicio))
+				.filter(e -> e.dentroDePeriodo(inicio, fin))
 				.mapToDouble(e -> e.obtenerCosto())
 				.sum();
 		

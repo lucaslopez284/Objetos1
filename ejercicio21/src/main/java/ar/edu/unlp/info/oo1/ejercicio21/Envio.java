@@ -21,6 +21,11 @@ public abstract class Envio {
 	public LocalDate getFechaDespacho() {
 		return fechaDespacho;
 	}
+	
+	public boolean dentroDePeriodo (LocalDate inicio, LocalDate fin){
+		return !this.getFechaDespacho().isAfter(fin) && !this.getFechaDespacho().isBefore(inicio);
+	}
+	
 
 	public abstract double obtenerCosto();
 

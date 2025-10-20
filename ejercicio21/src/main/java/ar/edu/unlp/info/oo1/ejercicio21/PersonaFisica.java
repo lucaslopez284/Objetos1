@@ -15,7 +15,7 @@ public class PersonaFisica extends Cliente {
 	@Override
 	public double obtenerMontoAPagar(LocalDate inicio, LocalDate fin) {
 		double resultado = this.getEnvios().stream()
-				            .filter(e -> !e.getFechaDespacho().isAfter(fin) && !e.getFechaDespacho().isBefore(inicio))
+				            .filter(e -> e.dentroDePeriodo(inicio, fin))
 				            .mapToDouble(e -> e.obtenerCosto())
 				            .sum();
 		return resultado * 0.90;
