@@ -32,7 +32,7 @@ public class Reserva {
 	
 	public boolean distanciaModerada() {
 	    DateLapse auxiliar = new DateLapse (LocalDate.now(), periodo.getFrom());
-	    return auxiliar.sizeInDays()>= 2;
+	    return auxiliar.sizeInDays()>= 2 && auxiliar.sizeInDays()<= 7;
 	    		
 	}
 	

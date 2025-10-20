@@ -33,6 +33,8 @@ class PropiedadTest {
 		propiedad1.crearReserva(periodo1, inquilino1);
 		assertFalse(propiedad1.getReservas().isEmpty());
 		assertEquals(1, propiedad1.getReservas().size());
+		propiedad1.crearReserva(periodo1, inquilino1);
+		assertEquals(1, propiedad1.getReservas().size());
 	}
 
 	@Test
@@ -40,7 +42,7 @@ class PropiedadTest {
 		reserva1 = propiedad1.crearReserva(periodo2, inquilino1);
 		assertFalse(propiedad1.getReservas().isEmpty());
 		assertEquals(1, propiedad1.getReservas().size());
-		propiedad1.cancelarReserva(reserva1);
+		assertEquals (100, propiedad1.cancelarReserva(reserva1));
 		assertTrue(propiedad1.getReservas().isEmpty());
 		assertEquals(0, propiedad1.getReservas().size());
 	}
