@@ -10,7 +10,7 @@ public abstract class Cliente {
 	
 	private String direccion;
 	private String nombre;
-	private List<Envio> envios;
+	private List<Envio> envios; // DEBERIA SER PUBLICA O PROTEGIDA??
 	
 
 	public Cliente(String direccion, String nombre) {
@@ -23,7 +23,7 @@ public abstract class Cliente {
 		envios.add(envioNuevo);
 	}
 	
-	public List<Envio> getEnvios() {
+	public List<Envio> getEnvios() { // ESTE GET ES PARA OBTENER LA LISTA DE ENVIOS DESDE LA SUB-CLASE Y ASI PODER CALCULAR EL MONTO
 		return new ArrayList<Envio>(this.envios);
 	}
 	
