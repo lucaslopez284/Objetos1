@@ -10,7 +10,8 @@ public abstract class Cliente {
 	
 	private String direccion;
 	private String nombre;
-	private List<Envio> envios; // DEBERIA SER PUBLICA O PROTEGIDA??
+	private List<Envio> envios; // DEBERIA SER PRIVADA O PROTEGIDA??
+	                            // DE SER PROTEGIDA, COMO LO GRAFICO EN UML?
 	
 
 	public Cliente(String direccion, String nombre) {
