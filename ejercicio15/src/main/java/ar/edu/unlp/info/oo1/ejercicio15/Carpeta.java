@@ -47,5 +47,18 @@ public class Carpeta {
 	public int tamaño() {
 		return this.getEmails().stream().mapToInt(Email::tamaño).sum();
 	}
+	
+	public int cantidadEmails() {
+		return this.getEmails().size();
+	}
+	
+	public BagImpl cantidadMailsPorCategoria() {
+		BagImpl<String> resultado = new BagImpl<String>();
+		this.getEmails().stream()
+		                .map(e-> e.registrar())
+		                .forEach(resultado:: add);
+		
+		return resultado;
+	}
 
 }

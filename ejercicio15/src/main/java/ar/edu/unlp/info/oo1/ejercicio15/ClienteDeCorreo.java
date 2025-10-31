@@ -49,7 +49,15 @@ public class ClienteDeCorreo {
     }
     
     public int espacioOcupado() {
-		return this.getCarpetas().stream().mapToInt(Carpeta::tamaño).sum();
+		return this.getCarpetas().stream()
+				.mapToInt(Carpeta::tamaño)
+				.sum();
+	}
+    
+    public int cantidadEmails() {
+		return this.getCarpetas().stream()
+				.mapToInt(c -> c.cantidadEmails())
+				.sum();
 	}
 	
 	

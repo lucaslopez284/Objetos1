@@ -43,6 +43,22 @@ public class Email {
 		return this.titulo.contains(texto) || this.cuerpo.contains(texto);
 	}
 	
+	public String registrar() {
+		int aux = this.tamaño();
+		if (aux <= 300) {
+			return "Pequeño";
+		}
+		else {
+			if (aux < 500) {
+			    return "Mediano";
+		    }
+			else {
+				return "Grande";
+			}
+		}
+		
+	}
+	
 	
 
 }
